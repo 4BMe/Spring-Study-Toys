@@ -20,13 +20,13 @@ public class PrincipalDetailsService implements UserDetailsService {
 
 	// form의 input name과 매개변수명을 맞춰줘야 한다.
 	// 만약 다르면 configure에서 .usernameParameter("input name")으로 설정해야한다.
+	// Security Session(내부 Authentication(내부 UserDetails)
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User userEntity = userRepository.findByUsername(username);
-		if (userEntity != null) {
-			return new PrincipalDetails(userEntity);
-		}
-		return null;
+		if (userEntity == null)
+			return null;
+		return new PrincipalDetails(userEntity);
 	}
 
 }

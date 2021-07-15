@@ -8,6 +8,6 @@ import com.cos.security1.model.User;
 // JpaRepository를 상속했기 때문에 @Repository라는 어노테이션이 없어도 IoC된다. Bean으로 자동 등록
 public interface UserRepository extends JpaRepository<User, Integer> {
 	// findBy 규칙 -> Username 문법
-	// select * from user where username =?
+	// select * from user where username =? => ?에 파라미터들이 들어감
 	public User findByUsername(String username); // Jpa Query methods
 }
