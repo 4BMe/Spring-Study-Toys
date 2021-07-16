@@ -2,6 +2,7 @@ package com.cos.security1.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -11,7 +12,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Configuration // 메모리에 올리기
 @EnableWebSecurity // 웹 보안 활성화, 스프링시큐리티 필터(지금 등록하고 있는 필터 = 현재 클래스)가 스피링 필터체인에 등록이 된다.
 // filter의 가장 큰 역할은 사용자 요청을 검증하고 필요에 따라 데이터를 추가하거나 변조하는 것
-@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true) // secured 어노테이션 활성화, preAuthorize 어노테이션 활성
+@EnableGlobalMethodSecurity(securedEnabled = true, // secure 어노테이션 활성화
+							prePostEnabled = true) // @PreAuthorize 어노테이션 활성화
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Bean // 해당 메서드의 리턴되는 오브젝트를 IoC로 등록해준다.
