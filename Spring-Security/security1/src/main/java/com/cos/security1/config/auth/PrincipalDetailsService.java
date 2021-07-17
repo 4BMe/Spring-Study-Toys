@@ -1,6 +1,7 @@
 package com.cos.security1.config.auth;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -21,6 +22,7 @@ public class PrincipalDetailsService implements UserDetailsService {
 	// form의 input name과 매개변수명을 맞춰줘야 한다.
 	// 만약 다르면 configure에서 .usernameParameter("input name")으로 설정해야한다.
 	// Security Session(내부 Authentication(내부 UserDetails)
+	// 함수 종료시 @AuthenticationPrincipal 어노테이션이 만들어진다.
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User userEntity = userRepository.findByUsername(username);
