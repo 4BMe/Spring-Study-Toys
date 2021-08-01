@@ -6,29 +6,28 @@ server:
       charset: UTF-8
       enabled: true
       force: true
-      
+
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/security?serverTimezone=Asia/Seoul
     username: ssafy
     password: ssafy
-    
+
   jpa:
     hibernate:
       ddl-auto: update #create update none
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     show-sql: true
-    
-    
+
   security:
     oauth2:
       client:
         registration:
           google:
             client-id: 1091161311297-0oiqr11b33jv7cr946bmasn9g0ftaoq7.apps.googleusercontent.com
-            client-secret: PrAZmyp0xrbuCsrn4lvnDEdV
+            client-secret:
             scope:
-            - email
-            - profile
+              - email
+              - profile
